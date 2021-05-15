@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="BeautifulMusic.Playlist"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautifulMusic"
+     mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="auto" Width="auto" d:DesignWidth="650">
+    <Grid Width="700" RenderTransformOrigin="0.707,0.511">
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>-->
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}" Grid.ColumnSpan="2">
+            <Grid x:Name="PlayListGrid" Margin="0,0,25,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="10"/>-->
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Height="450" Background="white" Margin="10,10,28,10">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" ShadowDepth="1"/>
+                    </Grid.Effect>
+
+                    <StackPanel Margin="10,0">
+                        <TextBlock Margin="10" HorizontalAlignment="Center" FontFamily="Cooper Black" FontSize="12" Text="Плэйлисты" Foreground="DarkBlue"/>
+                        <StackPanel  HorizontalAlignment="Center">
+                            <ListView
+                                Height="370"
+                                MinHeight="100"
+                                DisplayMemberPath="Name"
+                                Name="PlayListsListView"
+                                MouseDoubleClick="button_Load_Click"
+                                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                Width="218" />
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                Width="100"
+                                Content="Загрузить"
+                                Click="button_Load_Click"
+                                FontFamily="Champagne &amp; Limousines"
+                                Margin="5"
+                                Height="30"
+                                Style="{StaticResource MaterialDesignFlatButton}"/>
+                            <Button
+                                Width="100"
+                                Content="Удалить"
+                                Click="button_Delete_Click"
+                                FontFamily="Champagne &amp; Limousines"
+                                Margin="5"
+                                Height="30"
+                                Style="{StaticResource MaterialDesignFlatButton}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Height="450" Background="white" Margin="320,10,55,10" Grid.ColumnSpan="2">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" ShadowDepth="1"/>
+                    </Grid.Effect>
+
+                    <StackPanel Width="300">
+                        <TextBlock Margin="10" HorizontalAlignment="Center" FontFamily="Cooper Black" FontSize="12" Text="Мой плэйлист" Foreground="DarkBlue"/>
+                        <!--<StackPanel  HorizontalAlignment="Center" Margin="-19,0,16,0" Width="235" Height="405">-->
+                            <ListView
+                                Height="370"
+                                MinHeight="100"
+                                DisplayMemberPath="Name"
+                                Name="CurrentPlayListView"
+                                MouseDoubleClick="button_Play_Click"
+                                ScrollViewer.VerticalScrollBarVisibility="Visible" RenderTransformOrigin="0.521,0.5" Margin="0,0,25,0" />
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    Content="Играть"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    Click="button_Play_Click"
+                                    Height="Auto"
+                                    Style="{StaticResource MaterialDesignFlatButton}" Width="90"/>
+                                <Button
+                                    Content="Сохранить"
+                                    Click="button_Save_Click"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    Margin="5"
+                                    Height="30"
+                                    Style="{StaticResource MaterialDesignFlatButton}" Width="108"/>
+                                <Button
+                                    Content="Очистить"
+                                    Click="button_Clear_Click"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    Margin="0"
+                                    Height="30"
+                                    Style="{StaticResource MaterialDesignFlatButton}" Width="100"/>
+                            </StackPanel>
+                        <!--</StackPanel>-->
+                    </StackPanel>
+                </Grid>
+                <!--<Grid Grid.Column="1" Height="300" Background="#FFF3F3F3" Margin="27,85,10,85">
+                </Grid>-->
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>
+
